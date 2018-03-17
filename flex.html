@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex</title>
+    <style>
+        .box {
+            display: flex;
+        }
+
+        .box .item {
+            margin: 10px;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            background: rgb(130, 241, 3);
+            text-align: center;
+            color: #fff;
+            border-radius: 6px;
+        }
+
+        .box .item-all {
+            height: 70px;
+        }
+
+        .box-1 {
+            flex-direction: row;
+        }
+
+        .box-2 {
+            flex-wrap: nowrap;
+        }
+
+        .box-3 {
+            flex-flow: row nowrap;
+        }
+
+        .box-4 {
+            justify-content: flex-end;
+        }
+
+        .box-5 {
+            align-items: center;
+        }
+
+        .box-6 {
+            align-content: center;
+        }
+
+        .box .order {
+            order: -1;
+            background: #bbbbbb;
+        }
+
+        .box .grow {
+            flex-grow: 1;
+            background: #bbbbbb
+        }
+
+        .box-9 .item {
+            width: 100px;
+        }
+
+        .box .shrink {
+            flex-shrink: 2;
+            background: #bbbbbb;
+        }
+
+        .box-10 {
+            flex-basis: 1;
+        }
+
+        .box .basis {
+            flex-basis: auto;
+            background: #bbbbbb;
+        }
+
+        .box .flex {
+            flex: 3;
+            background: #bbbbbb;
+        }
+
+        .box .start {
+            height: 30px;
+            align-self: flex-start;
+            background: #bbbbbb;
+        }
+
+        .box .self {
+            height: 30px;
+            align-self: flex-end;
+            background: #bbbbbb;
+        }
+    </style>
+</head>
+
+<body>
+    <div>容器的属性</div>
+    <ul>
+        <li>flex-direction</li>
+        <li>flex-wrap</li>
+        <li>flex-flow</li>
+        <li>justify-content</li>
+        <li>align-items</li>
+        <li>align-content</li>
+    </ul>
+    <div class="felx-direction">
+        <h1>flex-direction</h1>
+        <p>flex-direction属性决定主轴的方向（即项目的排列方向）。</p>
+        <p>
+            .box { flex-direction: row | row-reverse | column | column-reverse; }
+        </p>
+    </div>
+    <div class="box box-1">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <div class="flex-wrap">
+        <h1>flex-wrap</h1>
+        <p>flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
+        <p>.box{ flex-wrap: nowrap | wrap | wrap-reverse; }
+        </p>
+    </div>
+    <div class="box box-2">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+        <div class="item">F</div>
+        <div class="item">G</div>
+        <div class="item">H</div>
+        <div class="item">I</div>
+        <div class="item">J</div>
+    </div>
+
+    <div class="flex-flow">
+        <h1>flex-flow</h1>
+        <p>flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</p>
+        <p>.box { flex-flow:
+            <flex-direction> ||
+                <flex-wrap>; }
+        </p>
+    </div>
+    <div class="box box-3">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+        <div class="item">F</div>
+        <div class="item">G</div>
+        <div class="item">H</div>
+        <div class="item">I</div>
+        <div class="item">J</div>
+    </div>
+    <div class="justify-content">
+        <h1>justify-content</h1>
+        <p>justify-content属性定义了项目在主轴上的对齐方式。</p>
+        <p>.box { justify-content: flex-start | flex-end | center | space-between | space-around; }
+        </p>
+    </div>
+    <div class="box box-4">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <div class="align-items">
+        <h1>align-items</h1>
+        <p>align-items属性定义项目在交叉轴上如何对齐。</p>
+        <p>.box { align-items: flex-start | flex-end | center | baseline | stretch; }
+        </p>
+    </div>
+    <div class="box box-5">
+        <div class="item item-all">A</div>
+        <div class="item">B</div>
+        <div class="item item-all">C</div>
+        <div class="item">D</div>
+        <div class="item item-all">E</div>
+        <div class="item">F</div>
+        <div class="item">G</div>
+    </div>
+
+    <div class="align-content">
+        <h1>align-content</h1>
+        <p>align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</p>
+        <p>.box { align-content: flex-start | flex-end | center | space-between | space-around | stretch; }
+        </p>
+    </div>
+
+    <div class="box box-6">
+        <div class="item item-all">A</div>
+        <div class="item">B</div>
+        <div class="item item-all">C</div>
+        <div class="item">D</div>
+        <div class="item item-all">E</div>
+        <div class="item">F</div>
+        <div class="item">G</div>
+    </div>
+    <br/>
+    <div>项目的属性</div>
+    <ul>
+        <li>order</li>
+        <li>flex-grow</li>
+        <li>flex-shrink</li>
+        <li>flex-basis</li>
+        <li>flex</li>
+        <li>align-self</li>
+    </ul>
+
+    <div class="order">
+        <h1>order</h1>
+        <p>order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</p>
+        <p>.item { order:
+            <integer>; }
+        </p>
+    </div>
+    <div class="box box-7">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item order">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <div class="flex-grow">
+        <h1>flex-grow</h1>
+        <p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
+        <p>.item { flex-grow:
+            <number>; /* default 0 */ }
+        </p>
+    </div>
+    <div class="box box-8">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item grow">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <div class="flex-shrink">
+        <h1>flex-shrink</h1>
+        <p>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+        <p>.item { flex-shrink:
+            <number>; /* default 1 */ }
+        </p>
+    </div>
+    <div class="box box-9">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item shrink">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+    <div class="flex-basis">
+        <h1>flex-basis</h1>
+        <p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</p>
+        <p>.item { flex-basis:
+            <length> | auto; /* default auto */ }
+        </p>
+    </div>
+    <div class="box box-10">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item basis">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <div class="flex">
+        <h1>flex</h1>
+        <p>flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</p>
+        <p>.item { flex: none | [
+            < 'flex-grow'>
+                < 'flex-shrink'>? ||
+                    < 'flex-basis'> ] }
+        </p>
+    </div>
+    <div class="box box-11">
+        <div class="item">A</div>
+        <div class="item">B</div>
+        <div class="item flex">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+
+    <div class="align-self">
+        <h1>align-self</h1>
+        <p>align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</p>
+        <p>.item { align-self: auto | flex-start | flex-end | center | baseline | stretch; }
+        </p>
+    </div>
+
+    <div class="box box-12">
+        <div class="item start">A</div>
+        <div class="item">B</div>
+        <div class="item self">C</div>
+        <div class="item">D</div>
+        <div class="item">E</div>
+    </div>
+</body>
+
+</html>
